@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root "dashboard#index"
+
+  post "start_bot", to: "dashboard#start_bot"
+  post "stop_bot", to: "dashboard#stop_bot"
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

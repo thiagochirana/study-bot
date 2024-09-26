@@ -11,7 +11,7 @@ class PrefixedCommands::PlayMusic
         return
       end
 
-      playlist = Playlist.find_or_create_by(name: "playlist_#{ENV["DISCORD_BOT_NAME"]}")
+      playlist = Playlist.find_or_create_by(name: "playlist_#{Enviroment.find_by(key: "DISCORD_BOT_NAME").value}")
 
       # Primeiro busca localmente se já não tem algo 'pronto'
       music = Music.where("link = ? OR query_search = ?", name_music, name_music).first

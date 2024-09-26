@@ -8,7 +8,7 @@ class Youtube::SearchService
 
   def self.music(query)
     youtube = Google::Apis::YoutubeV3::YouTubeService.new
-    youtube.key = ENV["YOUTUBE_API_KEY"]
+    youtube.key = Enviroment.find_by(key: "YOUTUBE_API_KEY").value
 
     video_id = extract_video_id(query)
 
